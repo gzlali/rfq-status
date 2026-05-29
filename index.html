@@ -3,138 +3,493 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RFQ Status Dashboard</title>
+<title>RFQ STATUS // COMMAND CENTER</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap');
+
+  :root {
+    --cyan: #00f5ff;
+    --cyan-dim: rgba(0,245,255,0.15);
+    --cyan-glow: rgba(0,245,255,0.4);
+    --green: #00ff88;
+    --green-dim: rgba(0,255,136,0.12);
+    --orange: #ff9500;
+    --orange-dim: rgba(255,149,0,0.12);
+    --red: #ff3b5c;
+    --red-dim: rgba(255,59,92,0.12);
+    --yellow: #ffe600;
+    --yellow-dim: rgba(255,230,0,0.12);
+    --bg: #040810;
+    --panel: #070d1a;
+    --border: rgba(0,245,255,0.18);
+    --text: #c8e6ff;
+    --text-dim: rgba(200,230,255,0.45);
+  }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f5f6f8;
-    color: #1a1a2e;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Scan line effect */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 32px 24px;
   }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 32px;
-  }
-  h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
-  #updated { font-size: 12px; color: #888; }
-  .project { background: #fff; border-radius: 10px; margin-bottom: 28px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
-  .project-header {
-    padding: 14px 20px;
-    background: #1a1a2e;
-    color: #fff;
+
+  /* Header */
+  .hdr {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
   }
-  .project-header h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.3px; }
-  .project-meta { font-size: 11px; color: #aab; }
-  table { width: 100%; border-collapse: collapse; }
-  th {
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
+
+  .hdr-left { display: flex; flex-direction: column; gap: 4px; }
+
+  .hdr-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--cyan);
+    letter-spacing: 3px;
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #888;
-    padding: 10px 20px;
-    border-bottom: 1px solid #eee;
-    background: #fafafa;
+    color: #fff;
+    text-shadow: 0 0 20px var(--cyan-glow);
   }
+
+  .hdr-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+
+  .clock {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 22px;
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan-glow);
+    letter-spacing: 2px;
+  }
+
+  .updated {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    flex: 1;
+    min-width: 140px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+  }
+
+  .stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--cyan);
+    text-shadow: 0 0 12px var(--cyan-glow);
+    line-height: 1;
+  }
+
+  /* Project panels */
+  .project {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .project::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--cyan), transparent);
+    box-shadow: 2px 0 12px var(--cyan-glow);
+  }
+
+  .proj-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px 16px 28px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(0,245,255,0.03);
+  }
+
+  .proj-name {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .proj-meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .proj-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,245,255,0.3);
+    padding: 3px 8px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    text-align: left;
+    padding: 10px 16px 10px 28px;
+    border-bottom: 1px solid rgba(0,245,255,0.08);
+    background: rgba(0,0,0,0.2);
+  }
+
+  th:first-child { padding-left: 28px; }
+
   td {
-    padding: 12px 20px;
-    font-size: 13px;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0,245,255,0.05);
     vertical-align: top;
   }
+
+  td:first-child { padding-left: 28px; }
+
   tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #fafbff; }
-  .price { font-weight: 600; font-size: 13px; }
-  .notes { color: #555; font-size: 12px; max-width: 340px; line-height: 1.5; }
-  .badge {
-    display: inline-block;
-    padding: 3px 9px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-    white-space: nowrap;
+
+  tr:hover td {
+    background: rgba(0,245,255,0.03);
   }
-  .badge-received   { background: #e6f4ea; color: #2d7a3a; }
-  .badge-conditional { background: #fff3cd; color: #856404; }
-  .badge-awaiting   { background: #e8eaf6; color: #3949ab; }
-  .badge-followup   { background: #fff8e1; color: #e65100; }
-  .badge-closed     { background: #fce4ec; color: #c62828; }
-  .badge-issue      { background: #fce4ec; color: #b71c1c; }
-  #loading { text-align: center; padding: 60px; color: #888; font-size: 14px; }
-  #error   { text-align: center; padding: 60px; color: #c62828; font-size: 14px; }
+
+  .supplier-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  .price-val {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    color: var(--cyan);
+    text-shadow: 0 0 8px var(--cyan-glow);
+  }
+
+  .notes-txt {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-dim);
+    max-width: 320px;
+    line-height: 1.5;
+  }
+
+  /* Status badges */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .badge::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .badge-received {
+    background: var(--green-dim);
+    color: var(--green);
+    border: 1px solid rgba(0,255,136,0.3);
+    box-shadow: 0 0 8px rgba(0,255,136,0.1);
+  }
+  .badge-received::before { background: var(--green); box-shadow: 0 0 6px var(--green); }
+
+  .badge-conditional {
+    background: var(--yellow-dim);
+    color: var(--yellow);
+    border: 1px solid rgba(255,230,0,0.3);
+    box-shadow: 0 0 8px rgba(255,230,0,0.1);
+  }
+  .badge-conditional::before { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+
+  .badge-awaiting {
+    background: rgba(0,245,255,0.06);
+    color: var(--cyan);
+    border: 1px solid rgba(0,245,255,0.2);
+  }
+  .badge-awaiting::before { background: var(--cyan); animation: pulse 1.5s infinite; }
+
+  .badge-followup {
+    background: var(--orange-dim);
+    color: var(--orange);
+    border: 1px solid rgba(255,149,0,0.3);
+  }
+  .badge-followup::before { background: var(--orange); animation: pulse 2s infinite; }
+
+  .badge-closed {
+    background: var(--red-dim);
+    color: var(--red);
+    border: 1px solid rgba(255,59,92,0.3);
+  }
+  .badge-closed::before { background: var(--red); }
+
+  .badge-issue {
+    background: var(--red-dim);
+    color: var(--red);
+    border: 1px solid rgba(255,59,92,0.25);
+  }
+  .badge-issue::before { background: var(--red); animation: pulse 1s infinite; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  /* Corner decorations */
+  .corner-tl, .corner-br {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-color: var(--cyan);
+    border-style: solid;
+    opacity: 0.5;
+  }
+  .corner-tl { top: 8px; right: 8px; border-width: 1px 1px 0 0; }
+
+  #loading, #error {
+    text-align: center;
+    padding: 80px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--cyan);
+  }
+
+  #error { color: var(--red); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 </style>
 </head>
 <body>
-<header>
-  <h1>RFQ Status Dashboard</h1>
-  <span id="updated">Loading...</span>
-</header>
-<div id="content"><div id="loading">Loading status data...</div></div>
+<div class="wrapper">
+
+  <div class="hdr">
+    <div class="hdr-left">
+      <span class="hdr-tag">// PROCUREMENT INTELLIGENCE SYSTEM v2.1</span>
+      <h1>RFQ Command Center</h1>
+    </div>
+    <div class="hdr-right">
+      <div class="clock" id="clock">--:--:--</div>
+      <div class="updated" id="updated">LAST SYNC: —</div>
+    </div>
+  </div>
+
+  <div class="stats-bar" id="stats-bar"></div>
+
+  <div id="content"><div id="loading">// LOADING STATUS DATA...</div></div>
+
+</div>
 
 <script>
-const BADGE = {
-  "Quote received":             "badge-received",
-  "Quote received (conditional)":"badge-conditional",
-  "Awaiting":                   "badge-awaiting",
-  "Follow-up sent":             "badge-followup",
-  "CLOSED":                     "badge-closed",
-  "Awaiting (delivery issue)":  "badge-issue"
-};
+  // Live clock
+  function tick() {
+    const now = new Date();
+    document.getElementById('clock').textContent =
+      now.toUTCString().slice(17,25) + ' UTC';
+  }
+  tick();
+  setInterval(tick, 1000);
 
-function badge(status) {
-  const cls = BADGE[status] || "badge-awaiting";
-  return `<span class="badge ${cls}">${status}</span>`;
-}
+  const BADGE = {
+    "Quote received":              ["badge-received",    "RECEIVED"],
+    "Quote received (conditional)":["badge-conditional", "CONDITIONAL"],
+    "Awaiting":                    ["badge-awaiting",    "AWAITING"],
+    "Follow-up sent":              ["badge-followup",    "FOLLOW-UP"],
+    "CLOSED":                      ["badge-closed",      "CLOSED"],
+    "Awaiting (delivery issue)":   ["badge-issue",       "DELIVERY ISSUE"]
+  };
 
-function renderProject(name, proj) {
-  const meta = [proj.hs_code && `HS ${proj.hs_code}`, proj.standard, proj.incoterm].filter(Boolean).join(" · ");
-  const rows = (proj.suppliers || []).map(s => `
-    <tr>
-      <td><strong>${s.name}</strong></td>
-      <td class="price">${s.price || "—"}</td>
-      <td>${s.incoterm || proj.incoterm || "—"}</td>
-      <td class="notes">${s.notes || ""}</td>
-      <td>${badge(s.status)}</td>
-    </tr>`).join("");
+  function badge(status) {
+    const [cls, label] = BADGE[status] || ["badge-awaiting", status.toUpperCase()];
+    return `<span class="badge ${cls}">${label}</span>`;
+  }
 
-  return `
-  <div class="project">
-    <div class="project-header">
-      <h2>${name}</h2>
-      <span class="project-meta">${meta}</span>
-    </div>
-    <table>
-      <thead>
-        <tr>
+  function renderStats(data) {
+    const all = Object.values(data.projects || {}).flatMap(p => p.suppliers || []);
+    const received  = all.filter(s => s.status.startsWith("Quote received")).length;
+    const awaiting  = all.filter(s => s.status === "Awaiting" || s.status === "Awaiting (delivery issue)").length;
+    const closed    = all.filter(s => s.status === "CLOSED").length;
+    const followup  = all.filter(s => s.status === "Follow-up sent").length;
+    const projects  = Object.keys(data.projects || {}).length;
+
+    const stats = [
+      { label: "Active Projects", value: projects },
+      { label: "Quotes Received", value: received },
+      { label: "Awaiting Reply",  value: awaiting },
+      { label: "Follow-Up Sent",  value: followup },
+      { label: "Closed",          value: closed   }
+    ];
+
+    document.getElementById('stats-bar').innerHTML = stats.map(s => `
+      <div class="stat-card">
+        <div class="stat-label">${s.label}</div>
+        <div class="stat-value">${String(s.value).padStart(2,'0')}</div>
+      </div>`).join('');
+  }
+
+  function renderProject(name, proj) {
+    const tags = [proj.hs_code && `HS ${proj.hs_code}`, proj.standard, proj.destination || proj.incoterm]
+      .filter(Boolean).map(t => `<span class="proj-tag">${t}</span>`).join('');
+
+    const rows = (proj.suppliers || []).map(s => `
+      <tr>
+        <td><span class="supplier-name">${s.name}</span></td>
+        <td><span class="price-val">${s.price || '—'}</span></td>
+        <td><span class="notes-txt">${s.incoterm || proj.incoterm || '—'}</span></td>
+        <td><span class="notes-txt">${s.notes || ''}</span></td>
+        <td>${badge(s.status)}</td>
+      </tr>`).join('');
+
+    return `
+    <div class="project">
+      <div class="corner-tl"></div>
+      <div class="proj-header">
+        <span class="proj-name">${name}</span>
+        <div class="proj-meta">${tags}</div>
+      </div>
+      <table>
+        <thead><tr>
           <th>Supplier</th>
           <th>Price</th>
           <th>Incoterm</th>
           <th>Notes</th>
           <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>${rows}</tbody>
-    </table>
-  </div>`;
-}
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+  }
 
-fetch("rfq_status.json?_=" + Date.now())
-  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(data => {
-    document.getElementById("updated").textContent = "Last updated: " + (data.updated || "unknown");
-    const html = Object.entries(data.projects || {}).map(([name, proj]) => renderProject(name, proj)).join("");
-    document.getElementById("content").innerHTML = html || "<p>No data.</p>";
-  })
-  .catch(err => {
-    document.getElementById("content").innerHTML = `<div id="error">Could not load rfq_status.json (${err.message})</div>`;
-  });
+  fetch('rfq_status.json?_=' + Date.now())
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => {
+      document.getElementById('updated').textContent =
+        'LAST SYNC: ' + (data.updated || 'UNKNOWN');
+      renderStats(data);
+      const html = Object.entries(data.projects || {})
+        .map(([name, proj]) => renderProject(name, proj)).join('');
+      document.getElementById('content').innerHTML = html || '<p>NO DATA.</p>';
+    })
+    .catch(err => {
+      document.getElementById('content').innerHTML =
+        `<div id="error">// ERROR: COULD NOT LOAD rfq_status.json (${err.message})</div>`;
+    });
 </script>
 </body>
 </html>
