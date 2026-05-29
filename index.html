@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RFQ Status Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f6f8;
+    color: #1a1a2e;
+    padding: 32px 24px;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 32px;
+  }
+  h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  #updated { font-size: 12px; color: #888; }
+  .project { background: #fff; border-radius: 10px; margin-bottom: 28px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+  .project-header {
+    padding: 14px 20px;
+    background: #1a1a2e;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .project-header h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.3px; }
+  .project-meta { font-size: 11px; color: #aab; }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    background: #fafafa;
+  }
+  td {
+    padding: 12px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafbff; }
+  .price { font-weight: 600; font-size: 13px; }
+  .notes { color: #555; font-size: 12px; max-width: 340px; line-height: 1.5; }
+  .badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-received   { background: #e6f4ea; color: #2d7a3a; }
+  .badge-conditional { background: #fff3cd; color: #856404; }
+  .badge-awaiting   { background: #e8eaf6; color: #3949ab; }
+  .badge-followup   { background: #fff8e1; color: #e65100; }
+  .badge-closed     { background: #fce4ec; color: #c62828; }
+  .badge-issue      { background: #fce4ec; color: #b71c1c; }
+  #loading { text-align: center; padding: 60px; color: #888; font-size: 14px; }
+  #error   { text-align: center; padding: 60px; color: #c62828; font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>RFQ Status Dashboard</h1>
+  <span id="updated">Loading...</span>
+</header>
+<div id="content"><div id="loading">Loading status data...</div></div>
+
+<script>
+const BADGE = {
+  "Quote received":             "badge-received",
+  "Quote received (conditional)":"badge-conditional",
+  "Awaiting":                   "badge-awaiting",
+  "Follow-up sent":             "badge-followup",
+  "CLOSED":                     "badge-closed",
+  "Awaiting (delivery issue)":  "badge-issue"
+};
+
+function badge(status) {
+  const cls = BADGE[status] || "badge-awaiting";
+  return `<span class="badge ${cls}">${status}</span>`;
+}
+
+function renderProject(name, proj) {
+  const meta = [proj.hs_code && `HS ${proj.hs_code}`, proj.standard, proj.incoterm].filter(Boolean).join(" · ");
+  const rows = (proj.suppliers || []).map(s => `
+    <tr>
+      <td><strong>${s.name}</strong></td>
+      <td class="price">${s.price || "—"}</td>
+      <td>${s.incoterm || proj.incoterm || "—"}</td>
+      <td class="notes">${s.notes || ""}</td>
+      <td>${badge(s.status)}</td>
+    </tr>`).join("");
+
+  return `
+  <div class="project">
+    <div class="project-header">
+      <h2>${name}</h2>
+      <span class="project-meta">${meta}</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Supplier</th>
+          <th>Price</th>
+          <th>Incoterm</th>
+          <th>Notes</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+
+fetch("rfq_status.json?_=" + Date.now())
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data => {
+    document.getElementById("updated").textContent = "Last updated: " + (data.updated || "unknown");
+    const html = Object.entries(data.projects || {}).map(([name, proj]) => renderProject(name, proj)).join("");
+    document.getElementById("content").innerHTML = html || "<p>No data.</p>";
+  })
+  .catch(err => {
+    document.getElementById("content").innerHTML = `<div id="error">Could not load rfq_status.json (${err.message})</div>`;
+  });
+</script>
+</body>
+</html>
