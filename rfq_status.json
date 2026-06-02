@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-02 07:12 UTC",
+  "updated": "2026-06-02 07:29 UTC",
   "projects": {
     "lysine_hcl": {
       "name": "L-Lysine HCl 98% (HS 2922.41)",
@@ -115,5 +115,142 @@
         }
       }
     }
-  }
+  },
+  "suppliers": [
+    {
+      "project": "L-Lysine HCl 98% (HS 2922.41)",
+      "incoterm": "CIF Poti / FOB Dalian",
+      "supplier": "Fufeng / Norah",
+      "status": "Quote received",
+      "price": "$890/MT FOB Dalian (25kg, no pallet)",
+      "notes": "FCL capacity confirmed 01 Jun: 17.5MT in 20ft, 27.5MT in 40ft. ETD July. Factory: Qiqihar Longjiang Fufeng.",
+      "last_contact": "2026-06-01"
+    },
+    {
+      "project": "L-Lysine HCl 98% (HS 2922.41)",
+      "incoterm": "CIF Poti / FOB Dalian",
+      "supplier": "Meihua / Jeffery",
+      "status": "Quote received (conditional)",
+      "price": "See offer 29 May",
+      "notes": "Must be purchased together with Threonine or Lysine Sulphate 70% per Meihua policy. Offer forwarded to client.",
+      "last_contact": "2026-05-29"
+    },
+    {
+      "project": "L-Lysine HCl 98% (HS 2922.41)",
+      "incoterm": "CIF Poti / FOB Dalian",
+      "supplier": "Pangoo",
+      "status": "Quote received",
+      "price": "$1,195/MT CIF Poti (20ft FCL, 25kg kraft bags)",
+      "notes": "Indicative offer received 21 May. Awaiting clarification on manufacturer/brand and whether Pangoo is trader or producer.",
+      "last_contact": "2026-05-21"
+    },
+    {
+      "project": "L-Lysine HCl 98% (HS 2922.41)",
+      "incoterm": "CIF Poti / FOB Dalian",
+      "supplier": "Polifar / Charles",
+      "status": "Quote received",
+      "price": "FOB only (Eppen / Meihua / Fufeng brands)",
+      "notes": "Charles offered FOB prices from major Chinese producers. CIF not available. Company name requested before full pricing stored. Awaiting our company details.",
+      "last_contact": "2026-05-21"
+    },
+    {
+      "project": "L-Threonine 98.5% (HS 2922.50)",
+      "incoterm": "CIF Poti / FOB Dalian",
+      "supplier": "Meihua / Jeffery",
+      "status": "Quote received (conditional)",
+      "price": "See offer 29 May",
+      "notes": "Bundled with Lysine HCl per Meihua condition. Offer forwarded to client.",
+      "last_contact": "2026-05-29"
+    },
+    {
+      "project": "Lysine Sulphate 70% (HS 2922.41)",
+      "incoterm": "CIF Poti / FOB Dalian",
+      "supplier": "Meihua / Jeffery",
+      "status": "Quote received (conditional)",
+      "price": "See offer 29 May",
+      "notes": "Bundled with Lysine HCl per Meihua condition. Alternative pairing option to Threonine.",
+      "last_contact": "2026-05-29"
+    },
+    {
+      "project": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
+      "incoterm": "EXW",
+      "supplier": "Bellakt",
+      "status": "Follow-up sent",
+      "price": "",
+      "notes": "Original 25 May; follow-ups 29 May and 01 Jun (urgent). No reply yet.",
+      "last_contact": "2026-06-01"
+    },
+    {
+      "project": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
+      "incoterm": "EXW",
+      "supplier": "Molvest",
+      "status": "Follow-up sent",
+      "price": "",
+      "notes": "Original 25 May; follow-ups 29 May and 01 Jun (urgent, Dairy Ingredients division). No reply yet.",
+      "last_contact": "2026-06-01"
+    },
+    {
+      "project": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
+      "incoterm": "EXW",
+      "supplier": "Babushkina Krynka",
+      "status": "Awaiting (delivery issue)",
+      "price": "",
+      "notes": "Mailbox full at sbit@babushkina.by (postmaster rejection 29 May: Quota exceeded). Alternate channel needed.",
+      "last_contact": "2026-05-29"
+    },
+    {
+      "project": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
+      "incoterm": "EXW",
+      "supplier": "Savushkin",
+      "status": "CLOSED",
+      "price": "",
+      "notes": "Confirmed non-producer of cream powder (Natalia Tereshchuk, Head of Dairy Ingredients Sales, 29 May).",
+      "last_contact": "2026-05-29"
+    },
+    {
+      "project": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
+      "incoterm": "EXW",
+      "supplier": "Uniconf / KMKK",
+      "status": "CLOSED",
+      "price": "",
+      "notes": "Confirmed non-producer of cream powder (Inna Prokhorova, Kardymovsky MKK Commercial Dept, 27 May).",
+      "last_contact": "2026-05-27"
+    },
+    {
+      "project": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
+      "incoterm": "EXW",
+      "supplier": "DMK Germany",
+      "status": "Awaiting",
+      "price": "",
+      "notes": "Initial inquiry sent 01 Jun referencing DMK ingredients catalogue (cream powder 42-75% fat). No reply yet.",
+      "last_contact": "2026-06-01"
+    },
+    {
+      "project": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
+      "incoterm": "EXW",
+      "supplier": "Mlekovita Poland",
+      "status": "Awaiting",
+      "price": "",
+      "notes": "Initial inquiry sent 01 Jun. No reply yet.",
+      "last_contact": "2026-06-01"
+    },
+    {
+      "project": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
+      "incoterm": "EXW",
+      "supplier": "Mlekpol Poland",
+      "status": "Awaiting",
+      "price": "",
+      "notes": "Initial inquiry sent 01 Jun. No reply yet.",
+      "last_contact": "2026-06-01"
+    },
+    {
+      "project": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
+      "incoterm": "EXW",
+      "supplier": "RMKK Belarus",
+      "status": "Awaiting",
+      "price": "",
+      "notes": "Initial inquiry sent 01 Jun (office@rmkk.by). No reply yet.",
+      "last_contact": "2026-06-01"
+    }
+  ]
 }
