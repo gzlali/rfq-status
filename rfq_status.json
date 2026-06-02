@@ -1,136 +1,119 @@
 {
-  "updated": "2026-06-01 11:51 UTC",
+  "updated": "2026-06-02 07:11 UTC",
   "projects": {
-    "Lysine HCl": {
-      "hs_code": "2922.41",
-      "destination": "CIF Poti / FOB Dalian",
-      "suppliers": [
-        {
-          "name": "Fufeng (Norah)",
-          "price": "$890/MT",
-          "incoterm": "FOB Dalian",
-          "notes": "20FCL: 17.5MT max | 40FCL: 27.5MT. No pallet. ETD July, Qiqihar Longjiang. Replied 1 Jun confirming FCL capacity.",
-          "status": "Quote received"
+    "lysine_hcl": {
+      "name": "L-Lysine HCl 98% (HS 2922.41)",
+      "incoterm": "CIF Poti / FOB Dalian",
+      "suppliers": {
+        "Fufeng / Norah": {
+          "status": "Quote received",
+          "price": "$890/MT FOB Dalian (25kg, no pallet)",
+          "notes": "FCL capacity confirmed 01 Jun: 17.5MT in 20ft, 27.5MT in 40ft. ETD July. Factory: Qiqihar Longjiang Fufeng.",
+          "last_contact": "2026-06-01"
         },
-        {
-          "name": "Meihua (Jeffery)",
-          "price": "$1,150/MT CIF | $910/MT FOB",
-          "incoterm": "CIF Poti / FOB Dalian",
-          "notes": "27MT/40FCL, 25kg bags. CONDITION: must buy with Threonine or Lysine Sulphate 70%. Payment: 100% TT advance. Shipment: June. Awaiting client feedback.",
-          "status": "Quote received (conditional)"
+        "Meihua / Jeffery": {
+          "status": "Quote received (conditional)",
+          "price": "See offer 29 May",
+          "notes": "Must be purchased together with Threonine or Lysine Sulphate 70% per Meihua policy. Offer forwarded to client.",
+          "last_contact": "2026-05-29"
         },
-        {
-          "name": "Pangoo",
-          "price": "$1,195/MT CIF Poti",
-          "incoterm": "CIF Poti",
-          "notes": "Brand not confirmed. No reply to clarification. Last follow-up 29 May.",
-          "status": "Follow-up sent"
+        "Pangoo": {
+          "status": "Quote received",
+          "price": "$1,195/MT CIF Poti (20ft FCL, 25kg kraft bags)",
+          "notes": "Indicative offer received 21 May. Awaiting clarification on manufacturer/brand and whether Pangoo is trader or producer.",
+          "last_contact": "2026-05-21"
         },
-        {
-          "name": "Polifar (Charles)",
-          "price": "Awaiting",
-          "incoterm": "FOB",
-          "notes": "Replied 21 May — can only provide FOB prices. Requires company name. Pending further action.",
-          "status": "Awaiting"
+        "Polifar / Charles": {
+          "status": "Quote received",
+          "price": "FOB only (Eppen / Meihua / Fufeng brands)",
+          "notes": "Charles offered FOB prices from major Chinese producers. CIF not available. Company name requested before full pricing stored. Awaiting our company details.",
+          "last_contact": "2026-05-21"
         }
-      ]
+      }
     },
-    "Threonine": {
-      "hs_code": "2922.50",
-      "destination": "CIF Poti / FOB Dalian",
-      "suppliers": [
-        {
-          "name": "Meihua (Jeffery)",
-          "price": "$1,330/MT CIF | $1,090/MT FOB",
-          "incoterm": "CIF Poti / FOB Dalian",
-          "notes": "Same conditions as Lysine HCl. Must buy with Lysine HCl or Lysine Sulphate 70%.",
-          "status": "Quote received (conditional)"
+    "threonine": {
+      "name": "L-Threonine 98.5% (HS 2922.50)",
+      "incoterm": "CIF Poti / FOB Dalian",
+      "suppliers": {
+        "Meihua / Jeffery": {
+          "status": "Quote received (conditional)",
+          "price": "See offer 29 May",
+          "notes": "Bundled with Lysine HCl per Meihua condition. Offer forwarded to client.",
+          "last_contact": "2026-05-29"
         }
-      ]
+      }
     },
-    "Lysine Sulphate 70%": {
-      "hs_code": "2922.41",
-      "destination": "CIF Poti / FOB Dalian",
-      "suppliers": [
-        {
-          "name": "Meihua (Jeffery)",
-          "price": "$800/MT CIF | $560/MT FOB",
-          "incoterm": "CIF Poti / FOB Dalian",
-          "notes": "Same conditions as Lysine HCl.",
-          "status": "Quote received (conditional)"
+    "lysine_sulphate_70": {
+      "name": "Lysine Sulphate 70% (HS 2922.41)",
+      "incoterm": "CIF Poti / FOB Dalian",
+      "suppliers": {
+        "Meihua / Jeffery": {
+          "status": "Quote received (conditional)",
+          "price": "See offer 29 May",
+          "notes": "Bundled with Lysine HCl per Meihua condition. Alternative pairing option to Threonine.",
+          "last_contact": "2026-05-29"
         }
-      ]
+      }
     },
-    "Cream Powder 42% Fat": {
-      "hs_code": "0402.21",
-      "standard": "GOST 33922-2016",
+    "cream_powder_42": {
+      "name": "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)",
       "incoterm": "EXW",
-      "suppliers": [
-        {
-          "name": "Bellakt (Belarus)",
-          "price": "Awaiting",
-          "notes": "3rd follow-up sent 1 Jun (urgent). No reply to date.",
-          "status": "Awaiting"
+      "suppliers": {
+        "Bellakt": {
+          "status": "Follow-up sent",
+          "price": "",
+          "notes": "Original 25 May; follow-ups 29 May and 01 Jun (urgent). No reply yet.",
+          "last_contact": "2026-06-01"
         },
-        {
-          "name": "Molvest (Russia)",
-          "price": "Awaiting",
-          "notes": "3rd follow-up sent 1 Jun (urgent). No reply to date.",
-          "status": "Awaiting"
+        "Molvest": {
+          "status": "Follow-up sent",
+          "price": "",
+          "notes": "Original 25 May; follow-ups 29 May and 01 Jun (urgent, Dairy Ingredients division). No reply yet.",
+          "last_contact": "2026-06-01"
         },
-        {
-          "name": "Babushkina Krynka (Belarus)",
-          "price": "Awaiting",
-          "notes": "Mailbox full on sbit@babushkina.by. Alternative contact needed.",
-          "status": "Awaiting (delivery issue)"
+        "Babushkina Krynka": {
+          "status": "Awaiting (delivery issue)",
+          "price": "",
+          "notes": "Mailbox full at sbit@babushkina.by (postmaster rejection 29 May: Quota exceeded). Alternate channel needed.",
+          "last_contact": "2026-05-29"
         },
-        {
-          "name": "Savushkin (Belarus)",
-          "price": "N/A",
-          "notes": "Confirmed non-producer (replied 29 May)",
-          "status": "CLOSED"
+        "Savushkin": {
+          "status": "CLOSED",
+          "price": "",
+          "notes": "Confirmed non-producer of cream powder (Natalia Tereshchuk, Head of Dairy Ingredients Sales, 29 May).",
+          "last_contact": "2026-05-29"
         },
-        {
-          "name": "Uniconf / Kardymovsky MKK (Russia)",
-          "price": "N/A",
-          "notes": "Confirmed non-producer (replied 27 May, Inna Prokhorova)",
-          "status": "CLOSED"
+        "Uniconf / KMKK": {
+          "status": "CLOSED",
+          "price": "",
+          "notes": "Confirmed non-producer of cream powder (Inna Prokhorova, Kardymovsky MKK Commercial Dept, 27 May).",
+          "last_contact": "2026-05-27"
         },
-        {
-          "name": "DMK (Germany)",
-          "price": "Awaiting",
-          "incoterm": "EXW",
-          "notes": "First outreach 1 Jun. DMK catalogue lists cream powder 42-75% fat.",
-          "status": "Awaiting"
+        "DMK Germany": {
+          "status": "Awaiting",
+          "price": "",
+          "notes": "Initial inquiry sent 01 Jun referencing DMK ingredients catalogue (cream powder 42-75% fat). No reply yet.",
+          "last_contact": "2026-06-01"
         },
-        {
-          "name": "Mlekovita (Poland)",
-          "price": "Awaiting",
-          "incoterm": "EXW",
-          "notes": "First outreach 1 Jun. Confirmed export capability inquiry.",
-          "status": "Awaiting"
+        "Mlekovita Poland": {
+          "status": "Awaiting",
+          "price": "",
+          "notes": "Initial inquiry sent 01 Jun. No reply yet.",
+          "last_contact": "2026-06-01"
         },
-        {
-          "name": "Mlekpol (Poland)",
-          "price": "Awaiting",
-          "incoterm": "EXW",
-          "notes": "First outreach 1 Jun.",
-          "status": "Awaiting"
+        "Mlekpol Poland": {
+          "status": "Awaiting",
+          "price": "",
+          "notes": "Initial inquiry sent 01 Jun. No reply yet.",
+          "last_contact": "2026-06-01"
         },
-        {
-          "name": "RMKK (Belarus)",
-          "price": "Awaiting",
-          "incoterm": "EXW",
-          "notes": "First outreach 1 Jun via office@rmkk.by. Awaiting reply.",
-          "status": "Awaiting"
-        },
-        {
-          "name": "Unknown Belarus supplier (milk2005@tut.by)",
-          "price": "N/A",
-          "notes": "Outreach 1 Jun bounced — domain tut.by not found. Dead address.",
-          "status": "CLOSED"
+        "RMKK Belarus": {
+          "status": "Awaiting",
+          "price": "",
+          "notes": "Initial inquiry sent 01 Jun (office@rmkk.by). No reply yet.",
+          "last_contact": "2026-06-01"
         }
-      ]
+      }
     }
   }
 }
