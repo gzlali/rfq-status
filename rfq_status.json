@@ -1,103 +1,135 @@
 {
-  "updated": "2026-06-04 21:00 UTC",
+  "updated": "2026-06-04 21:06 UTC",
   "projects": {
-    "Lysine HCl (HS 2922.41)": [
-      {
-        "supplier": "Fufeng / Norah",
-        "status": "Quote received",
-        "price": "USD 890/MT FOB Dalian (no pallet, 25kg bag)",
-        "notes": "FCL qty confirmed Jun 1: 17.5mt max in 20ft, 27.5mt in 40ft. ETD July. New reply awaiting action."
-      },
-      {
-        "supplier": "Pangoo",
-        "status": "Quote received",
-        "price": "USD 1195/MT CIF Poti (20ft)",
-        "notes": "Awaiting confirmation of manufacturer/brand and trader-vs-producer status."
-      },
-      {
-        "supplier": "Polifar / Charles",
-        "status": "Quote received",
-        "price": "FOB only (Eppen, Meihua, Fufeng brands)",
-        "notes": "Market news email received Jun 4 (amino acid market weak but stabilizing). No price refresh requested."
-      },
-      {
-        "supplier": "Meihua / Jeffery",
-        "status": "Quote received (conditional)",
-        "price": "Prices received 29 May",
-        "notes": "Condition: lysine HCl must be purchased together with threonine or lysine sulphate. Forwarded to client."
-      }
-    ],
-    "Threonine (HS 2922.50)": [
-      {
-        "supplier": "Meihua / Jeffery",
-        "status": "Quote received (conditional)",
-        "price": "Prices received 29 May",
-        "notes": "Condition: must be bought together with lysine HCl or lysine sulphate."
-      }
-    ],
-    "Lysine Sulphate 70% (HS 2922.41)": [
-      {
-        "supplier": "Meihua / Jeffery",
-        "status": "Quote received (conditional)",
-        "price": "Prices received 29 May",
-        "notes": "Condition: tied to lysine HCl or threonine purchase."
-      }
-    ],
-    "Cream Powder 42% Fat (HS 0402.21, GOST 33922-2016)": [
-      {
-        "supplier": "Bellakt",
-        "status": "Awaiting",
-        "price": "",
-        "notes": "Confirmed Jun 4 they produce; asked which market the product is for. Reply forwarded to client; awaiting client direction before responding."
-      },
-      {
-        "supplier": "Molvest",
-        "status": "Follow-up sent",
-        "price": "",
-        "notes": "Third follow-up sent Jun 4. No reply yet."
-      },
-      {
-        "supplier": "Babushkina Krynka",
-        "status": "Awaiting (delivery issue)",
-        "price": "",
-        "notes": "Mailbox full; messages rejected (quota exceeded)."
-      },
-      {
-        "supplier": "DMK Germany",
-        "status": "Awaiting",
-        "price": "",
-        "notes": "Inquiry sent Jun 1 per catalogue listing 42-75% fat. No reply yet."
-      },
-      {
-        "supplier": "Mlekovita Poland",
-        "status": "Awaiting",
-        "price": "",
-        "notes": "Inquiry sent Jun 1. No reply yet."
-      },
-      {
-        "supplier": "Mlekpol Poland",
-        "status": "Awaiting",
-        "price": "",
-        "notes": "Inquiry sent Jun 1. No reply yet."
-      },
-      {
-        "supplier": "RMKK Belarus",
-        "status": "Awaiting",
-        "price": "",
-        "notes": "Inquiry sent Jun 1 (office@rmkk.by). No reply yet."
-      },
-      {
-        "supplier": "Savushkin",
-        "status": "CLOSED",
-        "price": "",
-        "notes": "Confirmed non-producer of cream powder (reply 29 May)."
-      },
-      {
-        "supplier": "Uniconf / KMKK",
-        "status": "CLOSED",
-        "price": "",
-        "notes": "Confirmed non-producer (Kardymovsky MKK reply 27 May)."
-      }
-    ]
+    "Lysine HCl": {
+      "hs_code": "2922.41",
+      "destination": "CIF Poti / FOB Dalian",
+      "suppliers": [
+        {
+          "name": "Fufeng (Norah)",
+          "price": "$890/MT",
+          "incoterm": "FOB Dalian",
+          "notes": "20FCL: 17.5MT max | 40FCL: 27.5MT. No pallet. ETD July. Replied 1 Jun confirming FCL capacity.",
+          "status": "Quote received"
+        },
+        {
+          "name": "Meihua (Jeffery)",
+          "price": "$1,150/MT CIF | $910/MT FOB",
+          "incoterm": "CIF Poti / FOB Dalian",
+          "notes": "CONDITION: must buy with Threonine or Lysine Sulphate 70%. Payment: 100% TT advance. Shipment: June.",
+          "status": "Quote received (conditional)"
+        },
+        {
+          "name": "Pangoo",
+          "price": "$1,195/MT CIF Poti",
+          "incoterm": "CIF Poti",
+          "notes": "Brand/producer not confirmed. No reply to clarification.",
+          "status": "Follow-up sent"
+        },
+        {
+          "name": "Polifar (Charles)",
+          "price": "FOB (Eppen/Meihua/Fufeng)",
+          "incoterm": "FOB",
+          "notes": "Market update received 4 Jun. FOB only, requires company name to confirm price.",
+          "status": "Quote received"
+        }
+      ]
+    },
+    "Threonine": {
+      "hs_code": "2922.50",
+      "destination": "CIF Poti / FOB Dalian",
+      "suppliers": [
+        {
+          "name": "Meihua (Jeffery)",
+          "price": "$1,330/MT CIF | $1,090/MT FOB",
+          "incoterm": "CIF Poti / FOB Dalian",
+          "notes": "Must buy with Lysine HCl or Lysine Sulphate 70%.",
+          "status": "Quote received (conditional)"
+        }
+      ]
+    },
+    "Lysine Sulphate 70%": {
+      "hs_code": "2922.41",
+      "destination": "CIF Poti / FOB Dalian",
+      "suppliers": [
+        {
+          "name": "Meihua (Jeffery)",
+          "price": "$800/MT CIF | $560/MT FOB",
+          "incoterm": "CIF Poti / FOB Dalian",
+          "notes": "Same conditions as Lysine HCl.",
+          "status": "Quote received (conditional)"
+        }
+      ]
+    },
+    "Cream Powder 42% Fat": {
+      "hs_code": "0402.21",
+      "standard": "GOST 33922-2016",
+      "incoterm": "EXW",
+      "suppliers": [
+        {
+          "name": "Bellakt (Belarus)",
+          "price": "Awaiting",
+          "incoterm": "EXW",
+          "notes": "Replied 4 Jun: confirmed producer. Asked which market. Action needed: reply confirming Turkey/Istanbul.",
+          "status": "Follow-up sent"
+        },
+        {
+          "name": "Molvest (Russia)",
+          "price": "Awaiting",
+          "incoterm": "EXW",
+          "notes": "4th follow-up sent 4 Jun. No reply to date.",
+          "status": "Awaiting"
+        },
+        {
+          "name": "Babushkina Krynka (Belarus)",
+          "price": "Awaiting",
+          "incoterm": "EXW",
+          "notes": "Mailbox full on sbit@babushkina.by. Alternative contact needed.",
+          "status": "Awaiting (delivery issue)"
+        },
+        {
+          "name": "DMK (Germany)",
+          "price": "Awaiting",
+          "incoterm": "EXW",
+          "notes": "First outreach 1 Jun. No reply yet.",
+          "status": "Awaiting"
+        },
+        {
+          "name": "Mlekovita (Poland)",
+          "price": "Awaiting",
+          "incoterm": "EXW",
+          "notes": "First outreach 1 Jun. No reply yet.",
+          "status": "Awaiting"
+        },
+        {
+          "name": "Mlekpol (Poland)",
+          "price": "Awaiting",
+          "incoterm": "EXW",
+          "notes": "First outreach 1 Jun. No reply yet.",
+          "status": "Awaiting"
+        },
+        {
+          "name": "RMKK (Belarus)",
+          "price": "Awaiting",
+          "incoterm": "EXW",
+          "notes": "First outreach 1 Jun via office@rmkk.by. No reply yet.",
+          "status": "Awaiting"
+        },
+        {
+          "name": "Savushkin (Belarus)",
+          "price": "N/A",
+          "incoterm": "",
+          "notes": "Confirmed non-producer (replied 29 May).",
+          "status": "CLOSED"
+        },
+        {
+          "name": "Uniconf / Kardymovsky MKK (Russia)",
+          "price": "N/A",
+          "incoterm": "",
+          "notes": "Confirmed non-producer (replied 27 May, Inna Prokhorova).",
+          "status": "CLOSED"
+        }
+      ]
+    }
   }
 }
