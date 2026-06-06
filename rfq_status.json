@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-04 21:06 UTC",
+  "updated": "2026-06-06 07:28 UTC",
   "projects": {
     "Lysine HCl": {
       "hs_code": "2922.41",
@@ -9,29 +9,29 @@
           "name": "Fufeng (Norah)",
           "price": "$890/MT",
           "incoterm": "FOB Dalian",
-          "notes": "20FCL: 17.5MT max | 40FCL: 27.5MT. No pallet. ETD July. Replied 1 Jun confirming FCL capacity.",
+          "notes": "Confirmed holds for 17.5MT (20ft FCL) or 27.5MT (40ft FCL), 25kg bags no pallet, ETD July",
           "status": "Quote received"
         },
         {
           "name": "Meihua (Jeffery)",
-          "price": "$1,150/MT CIF | $910/MT FOB",
-          "incoterm": "CIF Poti / FOB Dalian",
-          "notes": "CONDITION: must buy with Threonine or Lysine Sulphate 70%. Payment: 100% TT advance. Shipment: June.",
+          "price": "$910/MT FOB / $1150/MT CIF",
+          "incoterm": "FOB Dalian / CIF Poti",
+          "notes": "Must be bought together with Threonine or Lysine Sulphate 70%. 27MT/40FCL, June shipment, 100% TT advance",
           "status": "Quote received (conditional)"
         },
         {
-          "name": "Pangoo",
-          "price": "$1,195/MT CIF Poti",
+          "name": "Pangoo (Mr. Xu)",
+          "price": "$1195/MT",
           "incoterm": "CIF Poti",
-          "notes": "Brand/producer not confirmed. No reply to clarification.",
-          "status": "Follow-up sent"
+          "notes": "20FT, 25kg kraft bags, China origin. Asked to confirm manufacturer brand and whether trader or producer",
+          "status": "Quote received"
         },
         {
           "name": "Polifar (Charles)",
-          "price": "FOB (Eppen/Meihua/Fufeng)",
+          "price": "FOB only",
           "incoterm": "FOB",
-          "notes": "Market update received 4 Jun. FOB only, requires company name to confirm price.",
-          "status": "Quote received"
+          "notes": "Offers Eppen, Meihua, Fufeng brands. FOB only, prices updated weekly. Requesting company name to store info",
+          "status": "Awaiting"
         }
       ]
     },
@@ -41,9 +41,9 @@
       "suppliers": [
         {
           "name": "Meihua (Jeffery)",
-          "price": "$1,330/MT CIF | $1,090/MT FOB",
-          "incoterm": "CIF Poti / FOB Dalian",
-          "notes": "Must buy with Lysine HCl or Lysine Sulphate 70%.",
+          "price": "$1090/MT FOB / $1330/MT CIF",
+          "incoterm": "FOB Dalian / CIF Poti",
+          "notes": "Part of conditional bundle with Lysine HCl. 27MT/40FCL, June shipment, 100% TT advance",
           "status": "Quote received (conditional)"
         }
       ]
@@ -54,9 +54,9 @@
       "suppliers": [
         {
           "name": "Meihua (Jeffery)",
-          "price": "$800/MT CIF | $560/MT FOB",
-          "incoterm": "CIF Poti / FOB Dalian",
-          "notes": "Same conditions as Lysine HCl.",
+          "price": "$560/MT FOB / $800/MT CIF",
+          "incoterm": "FOB Dalian / CIF Poti",
+          "notes": "Part of conditional bundle with Lysine HCl. 27MT/40FCL, June shipment, 100% TT advance",
           "status": "Quote received (conditional)"
         }
       ]
@@ -67,66 +67,66 @@
       "incoterm": "EXW",
       "suppliers": [
         {
-          "name": "Bellakt (Belarus)",
-          "price": "Awaiting",
+          "name": "Bellakt",
+          "price": "",
           "incoterm": "EXW",
-          "notes": "Replied 4 Jun: confirmed producer. Asked which market. Action needed: reply confirming Turkey/Istanbul.",
+          "notes": "Confirmed they produce. Asked which market the product is for, reply needed",
           "status": "Follow-up sent"
         },
         {
-          "name": "Molvest (Russia)",
-          "price": "Awaiting",
+          "name": "Molvest",
+          "price": "",
           "incoterm": "EXW",
-          "notes": "4th follow-up sent 4 Jun. No reply to date.",
-          "status": "Awaiting"
-        },
-        {
-          "name": "Babushkina Krynka (Belarus)",
-          "price": "Awaiting",
-          "incoterm": "EXW",
-          "notes": "Mailbox full on sbit@babushkina.by. Alternative contact needed.",
-          "status": "Awaiting (delivery issue)"
-        },
-        {
-          "name": "DMK (Germany)",
-          "price": "Awaiting",
-          "incoterm": "EXW",
-          "notes": "First outreach 1 Jun. No reply yet.",
-          "status": "Awaiting"
-        },
-        {
-          "name": "Mlekovita (Poland)",
-          "price": "Awaiting",
-          "incoterm": "EXW",
-          "notes": "First outreach 1 Jun. No reply yet.",
-          "status": "Awaiting"
-        },
-        {
-          "name": "Mlekpol (Poland)",
-          "price": "Awaiting",
-          "incoterm": "EXW",
-          "notes": "First outreach 1 Jun. No reply yet.",
-          "status": "Awaiting"
-        },
-        {
-          "name": "RMKK (Belarus)",
-          "price": "Awaiting",
-          "incoterm": "EXW",
-          "notes": "First outreach 1 Jun via office@rmkk.by. No reply yet.",
-          "status": "Awaiting"
-        },
-        {
-          "name": "Savushkin (Belarus)",
-          "price": "N/A",
-          "incoterm": "",
-          "notes": "Confirmed non-producer (replied 29 May).",
+          "notes": "Replied 05 Jun: does not produce cream powder",
           "status": "CLOSED"
         },
         {
-          "name": "Uniconf / Kardymovsky MKK (Russia)",
-          "price": "N/A",
-          "incoterm": "",
-          "notes": "Confirmed non-producer (replied 27 May, Inna Prokhorova).",
+          "name": "Babushkina Krynka",
+          "price": "",
+          "incoterm": "EXW",
+          "notes": "Follow-up bounced, mailbox full (quota exceeded). Cannot reach",
+          "status": "Awaiting (delivery issue)"
+        },
+        {
+          "name": "DMK Germany",
+          "price": "",
+          "incoterm": "EXW",
+          "notes": "Inquiry sent 01 Jun per catalogue listing 42-75% fat. No reply yet",
+          "status": "Awaiting"
+        },
+        {
+          "name": "Mlekovita Poland",
+          "price": "",
+          "incoterm": "EXW",
+          "notes": "Inquiry sent 01 Jun. No reply yet",
+          "status": "Awaiting"
+        },
+        {
+          "name": "Mlekpol Poland",
+          "price": "",
+          "incoterm": "EXW",
+          "notes": "Inquiry sent 01 Jun. No reply yet",
+          "status": "Awaiting"
+        },
+        {
+          "name": "RMKK Belarus",
+          "price": "",
+          "incoterm": "EXW",
+          "notes": "Inquiry sent 01 Jun. No reply yet",
+          "status": "Awaiting"
+        },
+        {
+          "name": "Savushkin",
+          "price": "",
+          "incoterm": "EXW",
+          "notes": "Confirmed non-producer, declined to quote",
+          "status": "CLOSED"
+        },
+        {
+          "name": "Uniconf / KMKK",
+          "price": "",
+          "incoterm": "EXW",
+          "notes": "Confirmed non-producer (Kardymovsky MKK does not make cream powder)",
           "status": "CLOSED"
         }
       ]
